@@ -1,0 +1,62 @@
+﻿@{
+    Layout = null;
+}
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head id="Head1">
+    <title>index.jsp</title>
+    <link href="css/style.css" rel="stylesheet" type="text/css" />
+    <!--PageOffice.js一定要引用-->
+    <script type="text/javascript" src="~/PageOffice/pageoffice.js"></script>
+</head>
+<body>
+    <!--header-->
+    <div class="zz-headBox br-5 clearfix" align="center">
+        <div class="zz-head mc">
+            <!--logo-->
+            <div class="logo fl">
+                <a href="#">
+                    <img src="css/logo.png" alt="" />
+                </a>
+            </div>
+            <!--logo end-->
+            <ul class="head-rightUl fr">
+                <li><a href="http://www.zhuozhengsoft.com">卓正网站</a></li>
+                <li><a href="http://www.zhuozhengsoft.com/Technical/">技术支持</a></li>
+                <li class="bor-0"><a href="http://www.zhuozhengsoft.com/about/about/">联系我们</a></li>
+            </ul>
+        </div>
+    </div>
+    <!--header end-->
+    <!--content-->
+    <div class="zz-content mc clearfix pd-28" align="center">
+        <div class="demo mc">
+            <h2 class="fs-16">
+                演示PageOffice控件不遮挡页面下拉菜单和不遮挡弹出的div框
+            </h2>
+        </div>
+
+        <div style="margin : 10px" align="center">
+            <table style="border-collapse:separate; border-spacing:20px;">
+                <tr>
+                    <td>
+                        1.PageOffice控件不遮挡页面下拉菜单：<a href="javascript:POBrowser.openWindowModeless('simpleselect/Word' , 'width=1200px;height=800px;');">Word1.jsp</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        2.PageOffice控件不遮挡弹出的div框：<a href="javascript:POBrowser.openWindowModeless('simplediv/Word' , 'width=1200px;height=800px;');">Word2.jsp</a>
+                    </td>
+                </tr>
+            </table>
+
+        </div>
+
+    </div>
+
+    <!--footer
+    <div class="login-footer clearfix">
+        Copyright &copy 2017 北京卓正志远软件有限公司</div>
+    -->
+</body>
+</html>

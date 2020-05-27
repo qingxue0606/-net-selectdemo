@@ -1,0 +1,125 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <base target="_self">
+    <title>PageOffice控件不遮挡下拉框</title>
+    <!-- 最新 Bootstrap 核心 CSS 文件 -->
+    <link type="text/css" href="css/bootstrap.min.css" rel="stylesheet">
+    <!-- jQuery文件。务必在bootstrap.min.js 之前引入-->
+    <script src="css/jquery-1.11.1.min.js"></script>
+    <!-- 最新的 Bootstrap 核心 JavaScript 文件  -->
+    <script src="css/bootstrap.min.js"></script>
+    <script type="text/javascript">
+        function objinit() {
+            $(".dropdown-menu").append('<iframe frameborder=0 scrolling=no style="background-color:transparent; position: absolute; z-index: -1; width: 100%; height: 100%; top: 0;left:0;"></iframe>');
+        }
+    </script>
+    <!-- PageOfficeJs功能区-->
+    <script type="text/javascript">
+        //关闭
+        function CloseFile() {
+            window.external.close();
+        }
+        //保存
+        function SaveFile() {
+            document.getElementById("PageOfficeCtrl1").WebSave();
+        }
+        //另存
+        function SaveAs() {
+            document.getElementById("PageOfficeCtrl1").ShowDialog(3);
+        }
+        //打印
+        function PrintFile() {
+            document.getElementById("PageOfficeCtrl1").ShowDialog(4);
+        }
+        //打印设置
+        function PageSet() {
+            document.getElementById("PageOfficeCtrl1").ShowDialog(5);
+        }
+        //是否显示文件菜单栏
+        function ShowMenubar(flag) {
+            document.getElementById("PageOfficeCtrl1").Menubar = flag;
+        }
+        //是否显示自定义工具栏
+        function ShowCustomToolbar(flag) {
+            document.getElementById("PageOfficeCtrl1").CustomToolbar = flag;
+        }
+        //是否显示Office工具栏
+        function ShowOfficeToolebar(flag) {
+            document.getElementById("PageOfficeCtrl1").OfficeToolbars = flag;
+        }
+        //是否显示标尺
+        function ShowStaff(flag) {
+            document.getElementById("PageOfficeCtrl1").Document.ActiveWindow.ActivePane.DisplayRulers = flag;
+        }
+        //是否显示导航栏
+        function ShowNavigation(flag) {
+            document.getElementById("PageOfficeCtrl1").Document.Application.ActiveWindow.DocumentMap = flag;
+        }
+    </script>
+</head>
+<body onload="objinit();">
+    </div>
+    <!--功能列表-->
+    <!-- Tab panes -->
+    <div class="tab-content">
+        <div class="tab-pane fade in active" id="word">
+            <!-- Word部分功能演示 -->
+            <div class="btn-group">
+                <button type="button" class="btn btn-sm btn-primary dropdown-toggle">文件</button>
+                <button type="button" class="btn btn-sm btn-primary dropdown-toggle" data-toggle="dropdown">
+                    <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu" role="menu">
+                    <li><a onClick="SaveFile();">保存</a></li>
+                    <li><a onClick="SaveAs();">另存</a></li>
+                    <li><a onClick="PageSet();">打印设置</a></li>
+                    <li><a onClick="PrintFile();">打印</a></li>
+                </ul>
+            </div>
+            <!-- 界面窗口控制 -->
+            <div class="btn-group">
+                <button type="button" class="btn btn-sm btn-primary dropdown-toggle">视图</button>
+                <button type="button" class="btn btn-sm btn-primary dropdown-toggle" data-toggle="dropdown">
+                    <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu" role="menu">
+                    <li><a onClick="ShowMenubar(true);">显示文件菜单栏</a></li>
+                    <li><a onClick="ShowMenubar(false);">隐藏文件菜单栏</a></li>
+                    <li class="divider"></li>
+                    <li><a onClick="ShowCustomToolbar(true);">显示自定义工具栏</a></li>
+                    <li><a onClick="ShowCustomToolbar(false);">隐藏自定义工具栏</a></li>
+                    <li class="divider"></li>
+                    <li><a onClick="ShowOfficeToolebar(true);">显示office工具栏</a></li>
+                    <li><a onClick="ShowOfficeToolebar(false);">隐藏office工具栏</a></li>
+                </ul>
+            </div>
+            <!-- 功能 -->
+            <div class="btn-group">
+                <button type="button" class="btn btn-sm btn-primary dropdown-toggle">功能</button>
+                <button type="button" class="btn btn-sm btn-primary dropdown-toggle" data-toggle="dropdown">
+                    <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu" role="menu">
+                    <li><a onClick="ShowStaff(true);">显示标尺</a></li>
+                    <li><a onClick="ShowStaff(false);">隐藏标尺</a></li>
+                    <li class="divider"></li>
+                    <li><a onClick="ShowNavigation(true);">显示导航栏</a></li>
+                    <li><a onClick="ShowNavigation(false);">隐藏导航栏</a></li>
+                </ul>
+            </div>
+        </div>
+        <!--控件对象-->
+        <div style="height: 800px;width: auto;">
+            @Html.Raw(ViewBag.POCtrl)
+        </div>
+
+    </div>
+
+</body>
+</html>
